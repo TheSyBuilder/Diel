@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="design/readme/hero.png" alt="Diel app icon and name beside three dial rings labelled Readiness, Load and Sleep" width="100%">
+  <img src="design/readme/hero.png" alt="Diel on three iPhones in the Ember, Lunar and Classic themes, showing the Readiness, Load and Sleep dials" width="100%">
 </p>
 
 <p align="center">
@@ -20,7 +20,20 @@ It's built for one person and isn't on the App Store. This repository has the
 app and its scoring code. My Garmin data stays out of it, and so do the tests
 that read that data. [What's not here](#whats-not-in-this-repo) explains why.
 
+<table>
+  <tr>
+    <td align="center"><img src="design/readme/checkin.png" width="200" alt="Morning check-in asking how I feel on a 1 to 5 scale"><br><sub><b>Check-in</b></sub></td>
+    <td align="center"><img src="design/readme/home-brief.png" width="200" alt="Home with the three dials and the morning brief"><br><sub><b>Home and brief</b></sub></td>
+    <td align="center"><img src="design/readme/home-cards.png" width="200" alt="Home cards for last night, today so far, Body Battery and this week"><br><sub><b>Today so far</b></sub></td>
+    <td align="center"><img src="design/readme/trends.png" width="200" alt="Trends over 30 days for Readiness and Load"><br><sub><b>Trends</b></sub></td>
+  </tr>
+</table>
+
+<sub>Screenshots from the Debug build's sample-data mode, replaying my own Garmin data for 24 October 2026.</sub>
+
 ## The three dials
+
+<img src="design/readme/readiness.png" align="right" width="230" alt="">
 
 ### Readiness
 
@@ -29,9 +42,13 @@ heart rate and recent sleep against my own history. The HRV and resting heart
 rate trends use exponentially weighted means with a three-day half-life. The
 score sits on a scale centred on 50 and clamped to 5 to 95.
 
-Every score comes with one reason, for example "HRV 10% above normal". The
+Every score comes with one reason, for example "HRV 9% above normal". The
 detail screen lists each input next to my normal, so I can see why the number
 moved.
+
+<br clear="right">
+
+<img src="design/readme/load.png" align="right" width="230" alt="">
 
 ### Load
 
@@ -43,11 +60,17 @@ Below 10 it says "No training yet". Above that it compares against my usual load
 for the same time of day. Each activity keeps Garmin's own load number, which
 can go past 100.
 
+<br clear="right">
+
+<img src="design/readme/sleep.png" align="right" width="230" alt="">
+
 ### Sleep
 
 Garmin's Sleep Score, credited to Garmin on the detail screen. Diel adds
 duration against need and the stage totals. When Garmin has no score, the dial
 shows a dash. Diel never makes one up.
+
+<br clear="right">
 
 Missing data stays missing everywhere. A night without HRV shows as missing
 instead of falling back to a trend, and the detail screens mark inputs that were
@@ -69,15 +92,18 @@ and rewrites it only when Readiness, Sleep or the Load state changes.
 
 ## Themes
 
-Diel is dark only. Three themes change the dial colours, the glow behind Home
-and the app icon together. Ember is the default, warm orange on near-black.
-Lunar is greyscale with a cool blue Load ring. Classic uses teal for Readiness
-and Sleep and orange for Load. The design rules, tokens and motion are in
-[DESIGN.md](DESIGN.md).
+<img src="design/readme/appearance.png" align="right" width="230" alt="Appearance settings with the Ember, Lunar and Classic themes and icons">
 
-<p>
-  <img src="design/icon/diel-icon-1024.png" width="96" alt="Diel app icon in the Ember theme">
-</p>
+Diel is dark only. Three themes change the dial colours, the glow behind Home
+and the app icon together.
+
+Ember is the default, warm orange on near-black. Lunar is greyscale with a cool
+blue Load ring. Classic uses teal for Readiness and Sleep and orange for Load.
+
+Switching a theme in Settings swaps the home screen icon to match. The design
+rules, tokens and motion are in [DESIGN.md](DESIGN.md).
+
+<br clear="right">
 
 ## How it fits together
 
@@ -122,9 +148,8 @@ repository together with everything that depends on it:
 - the Debug sample-data mode's bundled fixtures, so that mode has nothing to show here
 - the build plan and per-phase verification reports and screenshots
 
-That's also why this README has no app screenshots. Every screenshot I have
-shows my own numbers. The code here builds and runs against your own Garmin
-account.
+The screenshots above were taken with that private data. The code here builds
+and runs against your own Garmin account.
 
 ## Building
 
@@ -161,7 +186,7 @@ swift format lint --recursive --strict Diel ScoringKit
 ```text
 Diel/            app sources: Garmin client, sync, persistence, scoring service, screens
 ScoringKit/      Swift package for baselines and the three scores
-design/          app icons and the README banner
+design/          app icons and README screenshots
 scripts/         build metadata helper
 ```
 
