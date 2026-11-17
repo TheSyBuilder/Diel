@@ -1,0 +1,5 @@
+# Xcode local user state
+xcuserdata/
+.DS_Store
+DerivedData/
+ScoringKit/.build/
